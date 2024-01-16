@@ -1,8 +1,11 @@
-export default function Page() {
+import Box from "@mui/material/Box";
+import PageContainer from "@/components/PageContainer";
+import { Description } from "@mui/icons-material";
+
+export default function Page() {     
   return (
-    <div>
-      <h1>All Manuscripts</h1>
-      <p>All Manuscripts content</p>
-    </div>
+    <PageContainer pageTitle="All Manuscripts" pageIcon={Description}>
+      <Box>wtf</Box>
+    </PageContainer>
   );
 }

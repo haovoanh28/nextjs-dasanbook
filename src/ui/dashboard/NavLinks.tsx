@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import Link from "next/link";
 import {
+  Box,
   List,
   ListItem,
   ListItemButton,
@@ -74,10 +75,11 @@ export default function NavLinks() {
   ];
 
   useEffect(() => {
-    LINKS.forEach(({ isExpand }, idx) => {
+    LINKS.forEach(({ isExpand, href }, idx) => {
       // Init expandMap for expandable routes
       if (isExpand) {
-        setExpandMap((prev) => ({ ...prev, [idx]: false }));
+        const isMatched = pathname.startsWith(href);
+        setExpandMap((prev) => ({ ...prev, [idx]: isMatched ? true : false }));
       }
     });
   }, []);
@@ -96,32 +98,26 @@ export default function NavLinks() {
 
   const renderExpandIcon = (isExpand: boolean | undefined, index: number) => {
     if (!isExpand) return null;
-    return expandMap[index] ? (
-      <ExpandLess
-        onClick={() => {
-          setExpandMap({ ...expandMap, [index]: false });
-        }}
-      />
-    ) : (
-      <ExpandMore
-        onClick={() => {
-          setExpandMap({ ...expandMap, [index]: true });
-        }}
-      />
-    );
+    return expandMap[index] ? <ExpandLess /> : <ExpandMore />;
   };
 
   return (
     <>
       {LINKS.map(({ text, href, icon: Icon, isExpand, subLinks }, idx) => (
-        <Fragment key={text}>
+        <Fragment key={href}>
           <ListItem
             disablePadding
             sx={{
               ...createActiveStyle(href),
             }}
           >
-            <ListItemButton component={Link} href={href}>
+            <ListItemButton
+              component={subLinks ? Box : Link}
+              href={href}
+              onClick={() => {
+                setExpandMap({ ...expandMap, [idx]: !expandMap[idx] });
+              }}
+            >
               <ListItemIcon>{Icon && <Icon />}</ListItemIcon>
               <ListItemText primary={text} />
               {renderExpandIcon(isExpand, idx)}

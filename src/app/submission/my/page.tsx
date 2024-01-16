@@ -1,8 +1,13 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import PageContainer from "@/components/PageContainer";
+
 export default function Page() {
-   return (
-      <div>
-         <h1>My Manuscripts</h1>
-         <p>My Manuscripts content</p>
-      </div>
-   )
+  return (
+    <PageContainer pageTitle="My Manuscripts">
+      <Box>
+        <Typography variant="h6">My Submission</Typography>
+      </Box>
+    </PageContainer>
+  );
 }

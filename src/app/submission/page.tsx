@@ -1,8 +1,10 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
 export default function Page() {
    return (
-      <div>
-         <h1>Submission</h1>
-         <p>Submission content</p>
-      </div>
+      <Box>
+         <Typography variant="h6">Submission</Typography>
+      </Box>
    )
 }
