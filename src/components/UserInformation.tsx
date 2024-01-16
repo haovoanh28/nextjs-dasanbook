@@ -12,7 +12,7 @@ export default function UserInformation({ mainInfo, subInfo }: Props) {
     <Box
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
-      <Avatar>M</Avatar>
+      <Avatar variant="outlined">M</Avatar>
       <Box sx={{ ml: 1 }}>
         <Typography variant="body2">{mainInfo}</Typography>
         <Typography variant="caption">{subInfo}</Typography>

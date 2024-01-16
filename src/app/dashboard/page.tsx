@@ -1,8 +1,12 @@
+import PageContainer from "@/components/PageContainer";
+import { BarChart } from "@mui/icons-material";
+
 export default function Page() {
-   return (
+  return (
+    <PageContainer pageTitle="Dashboard" pageIcon={BarChart}>
       <div>
-         <h1>Dashboard</h1>
-         <p>Dashboard content</p>
+        <p>Dashboard content</p>
       </div>
-   );
+    </PageContainer>
+  );
 }

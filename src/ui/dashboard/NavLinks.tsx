@@ -19,6 +19,8 @@ import {
   ExpandLess,
   ExpandMore,
   Description,
+  ManageHistory,
+  Email,
 } from "@mui/icons-material";
 
 interface LinkType {
@@ -53,6 +55,19 @@ export default function NavLinks() {
           text: "My Manuscripts",
           href: "/submission/my",
           icon: Description,
+        },
+      ],
+    },
+    {
+      text: "원고 투고 목록",
+      icon: ManageHistory,
+      href: "/settings",
+      isExpand: true,
+      subLinks: [
+        {
+          text: "메일 템플릿",
+          href: "/settings/mail-template",
+          icon: Email,
         },
       ],
     },
