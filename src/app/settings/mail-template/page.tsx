@@ -1,8 +1,11 @@
-export default function Page() {
-   return (
-      <div>
-         <h1>Mail Template</h1>
-         <p>Mail Template content</p>
-      </div>
-   )
+import Box from "@mui/material/Box";
+import PageContainer from "@/components/PageContainer";
+import { Email } from "@mui/icons-material";
+
+export default function Page() {     
+  return (
+    <PageContainer pageTitle="Mail Template" pageIcon={Email}>
+      <Box>Mail template</Box>
+    </PageContainer>
+  );
 }

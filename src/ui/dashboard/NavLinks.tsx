@@ -86,7 +86,7 @@ export default function NavLinks() {
 
   const createActiveStyle = (href: string) => {
     return {
-      ...(pathname === href && {
+      ...((pathname === href) && {
         backgroundColor: "primary.main",
         color: "primary.contrastText",
         "& .MuiListItemIcon-root": {
