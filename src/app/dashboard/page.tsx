@@ -1,7 +1,7 @@
 import PageContainer from "@/components/PageContainer";
 import { BarChart } from "@mui/icons-material";
 
-export default function Page() {
+export default async function Page() {
   return (
     <PageContainer pageTitle="Dashboard" pageIcon={BarChart}>
       <div>

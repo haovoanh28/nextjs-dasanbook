@@ -26,7 +26,7 @@ export default function SideNav() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          p: 2,
+          p: 1,
         }}
       >
         <Image

@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import PageContainer from "@/components/PageContainer";
 import { Description } from "@mui/icons-material";
 
-export default function Page() {
+export default async function Page() {
   return (
     <PageContainer pageTitle="My Manuscripts" pageIcon={Description}>
       <Box>
