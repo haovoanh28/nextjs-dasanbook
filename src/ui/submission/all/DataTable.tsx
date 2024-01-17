@@ -1,3 +1,5 @@
+// 'use client';
+
 import { createColumnHelper, ColumnDef } from "@tanstack/react-table";
 import DataTableWrapper from "@/components/DataTableWrapper";
 
@@ -109,7 +111,7 @@ const data: User[] = [
   },
 ];
 
-export default async function AllManuscriptsDataTable() {
+export default function AllManuscriptsDataTable() {
   const columnHelper = createColumnHelper<User>();
   const columns: ColumnDef<User, any>[] = [
     columnHelper.accessor("firstName", {

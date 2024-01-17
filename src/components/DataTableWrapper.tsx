@@ -19,7 +19,7 @@ interface Props<TData> {
   columns: ColumnDef<TData, any>[];
 }
 
-export default async function DataTableWrapper<TData>({
+export default function DataTableWrapper<TData>({
   columns,
   data,
 }: Props<TData>) {
