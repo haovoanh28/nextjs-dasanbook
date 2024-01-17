@@ -3,7 +3,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import SearchBar from "@/components/SearchBar";
-import { PersonAddAlt1, Email, Download, MoreHoriz } from "@mui/icons-material";
+import BaseButton from "@/components/BaseButton";
+import {
+  PersonAddAlt1,
+  Email,
+  Download,
+  MoreHoriz,
+  FilterAlt,
+} from "@mui/icons-material";
 
 export default function Toolbar() {
   const ICONS = [
@@ -27,7 +34,7 @@ export default function Toolbar() {
 
   return (
     <Grid container alignItems={"center"}>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <Box sx={{ display: "flex", gap: 1 }}>
           {ICONS.map(({ icon: Icon, tooltip }, index) => (
             <IconButton color="primary">
@@ -36,10 +43,19 @@ export default function Toolbar() {
           ))}
         </Box>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={8} container justifyContent={"flex-end"} gap={1}>
         <SearchBar />
+        <BaseButton
+          variant="outlined"
+          color="primary"
+          startIcon={<FilterAlt />}
+        >
+          Filter
+        </BaseButton>
+        <BaseButton variant="outlined" color="primary" startIcon={<Download />}>
+          Export
+        </BaseButton>
       </Grid>
-      <Grid item xs={4}></Grid>
     </Grid>
   );
 }

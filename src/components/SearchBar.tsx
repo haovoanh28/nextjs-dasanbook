@@ -1,15 +1,26 @@
-import TextField from "@mui/material/TextField"
-import InputBase from '@mui/material/InputBase';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { styled, alpha } from '@mui/material/styles';
-import { Search } from "@mui/icons-material"
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Box from "@mui/material/Box";
+import { Search } from "@mui/icons-material";
 
-interface Props {
+interface Props {}
 
-}
-
-export default function SearchBar({}: Props) { 
-   return (
-      <OutlinedInput />
-   )
+export default function SearchBar({}: Props) {
+  return (
+    <OutlinedInput
+      sx={{}}
+      placeholder="Enter search keyword"
+      startAdornment={
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            pr: 1,
+          }}
+        >
+          <Search color="primary" />
+        </Box>
+      }
+    />
+  );
 }

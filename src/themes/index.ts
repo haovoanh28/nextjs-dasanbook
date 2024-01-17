@@ -1,36 +1,24 @@
-'use client';
-import { Roboto, Montserrat  } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
+"use client";
+import { Roboto } from "next/font/google";
+import { createTheme } from "@mui/material/styles";
+
+import ComponentOverrides from "./@override";
 
 const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
-const monserrat = Montserrat({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-});
-
-const theme = createTheme({
+let theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
   },
   typography: {
-    fontFamily: monserrat.style.fontFamily,
-  },
-  components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          ...(ownerState.severity === 'info' && {
-            backgroundColor: 'red',
-          }),
-        }),
-      },
-    },
+    fontFamily: roboto.style.fontFamily,
   },
 });
+
+theme.components = ComponentOverrides(theme);
 
 export default theme;
