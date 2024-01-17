@@ -6,7 +6,7 @@ export default function InputBase(theme: Theme): Components {
       styleOverrides: {
         root: {
           "& input": {
-            height: "1em",
+            height: "0.5em",
           },
         },
       },
