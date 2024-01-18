@@ -1,23 +1,26 @@
-import Grid from "@mui/material/Grid";
+'use client';
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Refresh, SvgIconComponent } from "@mui/icons-material";
+import BaseButton from "./BaseButton";
+import { Refresh, SvgIconComponent, ArrowBack } from "@mui/icons-material";
 
 interface Props {
   pageTitle: string;
   pageIcon?: SvgIconComponent;
   onRefresh?: () => void;
   children: React.ReactNode;
+  onClickBackButton?: () => void;
 }
 
 export default function PageContainer({
   pageTitle,
   pageIcon: Icon,
   onRefresh,
+  onClickBackButton,
   children,
 }: Props) {
   return (
@@ -53,7 +56,17 @@ export default function PageContainer({
 
       <Box sx={{ mt: 1 }}>
         <Card>
-          <CardContent>{children}</CardContent>
+          <CardContent>
+            {onClickBackButton && (
+              <Box sx={{ mb: 2 }}>
+                <BaseButton variant="text" startIcon={<ArrowBack />} onClick={() => {console.log("GGGG")}}>
+                  Back To List
+                </BaseButton>
+              </Box>
+            )}
+
+            {children}
+          </CardContent>
         </Card>
       </Box>
     </>

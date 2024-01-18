@@ -1,5 +1,4 @@
 import Button, { ButtonProps } from "@mui/material/Button";
-import { SxProps } from "@mui/material";
 
 interface Props extends ButtonProps {
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import {
   useReactTable,
   ColumnDef,
   getCoreRowModel,
-  flexRender
+  flexRender,
 } from "@tanstack/react-table";
 
 import Table from "@mui/material/Table";
@@ -19,10 +19,7 @@ interface Props<TData> {
   columns: ColumnDef<TData, any>[];
 }
 
-export default function DataTableWrapper<TData>({
-  columns,
-  data,
-}: Props<TData>) {
+export default function DataTable<TData>({ columns, data }: Props<TData>) {
   const table = useReactTable({
     columns,
     data,
@@ -31,26 +28,32 @@ export default function DataTableWrapper<TData>({
 
   return (
     <>
-      <Table stickyHeader>
-        <TableHead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableCell key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableHead>
-      </Table>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table aria-label="simple table">
+      <TableContainer
+        sx={{
+          maxHeight: 440,
+          // "&::-webkit-scrollbar": {
+          //   display: "none",
+          // },
+        }}
+      >
+        <Table stickyHeader aria-label="simple table">
+          <TableHead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableCell key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableHead>
+
           <TableBody>
             {table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>

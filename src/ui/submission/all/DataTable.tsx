@@ -1,7 +1,8 @@
-// 'use client';
+"use client";
 
 import { createColumnHelper, ColumnDef } from "@tanstack/react-table";
-import DataTableWrapper from "@/components/DataTableWrapper";
+import Checkbox from "@mui/material/Checkbox";
+import DataTable from "@/components/DataTable";
 
 type User = {
   firstName: string;
@@ -11,6 +12,8 @@ type User = {
   progress: number;
   status: string;
 };
+
+interface Props {}
 
 const data: User[] = [
   {
@@ -111,9 +114,22 @@ const data: User[] = [
   },
 ];
 
-export default function AllManuscriptsDataTable() {
+export default function AllManuscriptsDataTable({}: Props) {
   const columnHelper = createColumnHelper<User>();
   const columns: ColumnDef<User, any>[] = [
+    {
+      id: "select",
+      header: (info) => <Checkbox sx={{ width: 30 }} />,
+      cell: (info) => (
+        <Checkbox
+          sx={{ width: 30 }}
+          onChange={(e) => {
+            console.log("e", e);
+            console.log("wtf ==> ", info.row.original);
+          }}
+        />
+      ),
+    },
     columnHelper.accessor("firstName", {
       cell: (info) => info.getValue(),
       footer: (info) => info.column.id,
@@ -143,5 +159,5 @@ export default function AllManuscriptsDataTable() {
     }),
   ];
 
-  return <DataTableWrapper columns={columns} data={data} />;
+  return <DataTable columns={columns} data={data} />;
 }
