@@ -16,7 +16,9 @@ let theme = createTheme({
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-    
+    subtitle1: {
+      fontWeight: 500,
+    },
   },
 });
 
