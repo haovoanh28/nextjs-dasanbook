@@ -4,6 +4,7 @@ import InputBase from "./InputBase";
 import TableHead from "./TableHead";
 import TableCell from "./TableCell";
 import Button from "./Button";
+import Chip from "./Chip";
 
 export default function ComponentOverrides(theme: Theme) {
   return {
@@ -11,5 +12,6 @@ export default function ComponentOverrides(theme: Theme) {
     ...TableCell(theme),
     ...InputBase(theme),
     ...Button(theme),
+    ...Chip(theme),
   };
 }

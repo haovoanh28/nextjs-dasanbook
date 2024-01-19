@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography"
 
 export default function Loading() {
-   return <Typography>Loading</Typography>
+   return <Typography>Loading ...</Typography>
 }

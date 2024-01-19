@@ -37,7 +37,7 @@ export default function Toolbar() {
       <Grid item xs={4}>
         <Box sx={{ display: "flex", gap: 1 }}>
           {ICONS.map(({ icon: Icon, tooltip }, index) => (
-            <IconButton color="primary">
+            <IconButton color="primary" key={tooltip}>
               <Icon />
             </IconButton>
           ))}

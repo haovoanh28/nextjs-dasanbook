@@ -1,18 +1,20 @@
-import Box from "@mui/material/Box";
+import Box, { BoxProps } from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
-interface Props {
+interface Props extends BoxProps {
   mainInfo: string;
-  subInfo: string;
+  subInfo?: string;
 }
 
-export default function UserInformation({ mainInfo, subInfo }: Props) {
+export default function UserInformation({
+  mainInfo,
+  subInfo,
+  ...props
+}: Props) {
   return (
-    <Box
-      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-    >
-      <Avatar variant="outlined">M</Avatar>
+    <Box sx={{ display: "flex", alignItems: "center" }} {...props}>
+      <Avatar variant="circular">M</Avatar>
       <Box sx={{ ml: 1 }}>
         <Typography variant="body2">{mainInfo}</Typography>
         <Typography variant="caption">{subInfo}</Typography>
