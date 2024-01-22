@@ -1,12 +1,10 @@
-import PageContainer from "@/components/PageContainer";
-import { BarChart } from "@mui/icons-material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export default async function Page() {
   return (
-    <PageContainer pageTitle="Dashboard" pageIcon={BarChart}>
-      <div>
-        <p>Dashboard content</p>
-      </div>
-    </PageContainer>
+    <Box>
+      <Typography>Dashboard Page</Typography>
+    </Box>
   );
 }

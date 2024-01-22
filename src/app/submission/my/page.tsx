@@ -5,10 +5,8 @@ import { Description } from "@mui/icons-material";
 
 export default async function Page() {
   return (
-    <PageContainer pageTitle="My Manuscripts" pageIcon={Description}>
-      <Box>
-        <Typography variant="h6">My Submission</Typography>
-      </Box>
-    </PageContainer>
+    <Box>
+      <Typography variant="h6">My Submission</Typography>
+    </Box>
   );
 }

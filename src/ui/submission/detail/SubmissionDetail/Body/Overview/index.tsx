@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Files from "./Files";
-import CommentSection from "./CommentSection";
+import Comment from "../Comment";
 
 import { RowStyles } from "@/const/styles";
 import { fakerKO as faker } from "@faker-js/faker";
@@ -22,7 +22,7 @@ export default function Overview() {
       </Box>
 
       <Box sx={{ mt: 2 }}>
-        <CommentSection />
+        <Comment />
       </Box>
     </Box>
   );
