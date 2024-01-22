@@ -22,7 +22,7 @@ import {
   Description,
   ManageHistory,
   Email,
-  ManageAccounts
+  ManageAccounts,
 } from "@mui/icons-material";
 
 interface LinkType {
@@ -73,9 +73,9 @@ export default function NavLinks() {
         },
         {
           text: "분야별 담당자 지정",
-          href: "/settings/assign-editor",
+          href: "/settings/user-assignment",
           icon: ManageAccounts,
-        }
+        },
       ],
     },
   ];
@@ -92,7 +92,7 @@ export default function NavLinks() {
 
   const createActiveStyle = (href: string) => {
     return {
-      ...((pathname === href) && {
+      ...(pathname === href && {
         backgroundColor: "primary.main",
         color: "primary.contrastText",
         "& .MuiListItemIcon-root": {
