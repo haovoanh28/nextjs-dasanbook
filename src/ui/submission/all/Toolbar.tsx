@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import BaseIconButton from "@/components/IconButton";
+import BaseIconButton from "@/components/BaseIconButton";
 import SearchBar from "@/components/SearchBar";
 import BaseButton from "@/components/BaseButton";
 import {

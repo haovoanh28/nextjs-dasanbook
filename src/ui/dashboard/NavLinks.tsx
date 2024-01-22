@@ -22,6 +22,7 @@ import {
   Description,
   ManageHistory,
   Email,
+  ManageAccounts
 } from "@mui/icons-material";
 
 interface LinkType {
@@ -70,6 +71,11 @@ export default function NavLinks() {
           href: "/settings/mail-template",
           icon: Email,
         },
+        {
+          text: "분야별 담당자 지정",
+          href: "/settings/assign-editor",
+          icon: ManageAccounts,
+        }
       ],
     },
   ];

@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
@@ -9,15 +7,16 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 
 import BaseButton from "@/components/BaseButton";
-import MailTemplateHeader from "@/ui/settings/mail-template/PageHeader";
-import TemplateList from "@/ui/settings/mail-template/TemplateList";
-import { Email, ExpandMore } from "@mui/icons-material";
 
-export default async function Page() {
+import { ExpandMore } from "@mui/icons-material";
+import List from "./List";
+
+export default function TemplateList() {
+  // ! This is server component used to fetch data
+
   return (
     <Box>
-      <MailTemplateHeader />
-      <TemplateList />
+      <List />
     </Box>
   );
 }

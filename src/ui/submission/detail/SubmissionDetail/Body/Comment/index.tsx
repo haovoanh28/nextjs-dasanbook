@@ -17,10 +17,10 @@ type Comment = {
 
 const COMMENT_LIST: Comment[] = [];
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 5; i++) {
   const comment: Comment = {
     id: faker.string.uuid(),
-    creator: faker.person.firstName(),
+    creator: faker.person.firstName() + " " + faker.person.lastName(),
     position: faker.person.jobTitle(),
     dept: faker.commerce.department(),
     createdTime: faker.date.past().toISOString(),

@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@mui/material/Box";
 import { SxProps } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UserInformation from "@/components/UserInformation";
-import BaseIconButton from "@/components/IconButton";
+import BaseIconButton from "@/components/BaseIconButton";
 import { Edit, MoreVert } from "@mui/icons-material";
 
 interface Props {

@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import Files from "./Files";
 import Comment from "../Comment";
 
-import { RowStyles } from "@/const/styles";
+import { ROW_STYLES } from "@/const/styles";
 import { fakerKO as faker } from "@faker-js/faker";
 
 export default function Overview() {
@@ -11,11 +11,11 @@ export default function Overview() {
     <Box>
       <Files />
       <Box sx={{ mt: 1 }}>
-        <Box sx={{ ...RowStyles }}>
+        <Box sx={{ ...ROW_STYLES }}>
           <Typography>{faker.person.firstName()}:</Typography>
           <Typography>{faker.person.jobTitle()}</Typography>
         </Box>
-        <Box sx={{ ...RowStyles }}>
+        <Box sx={{ ...ROW_STYLES }}>
           <Typography>{faker.commerce.department()}:</Typography>
           <Typography>{faker.commerce.productName()}</Typography>
         </Box>

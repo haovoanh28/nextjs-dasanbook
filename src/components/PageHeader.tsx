@@ -1,20 +1,22 @@
-'use client';
+"use client";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import BaseButton from "./BaseButton";
-import { Refresh, SvgIconComponent } from "@mui/icons-material";
-
+import { Refresh, SvgIconComponent, Add } from "@mui/icons-material";
+import { PAGE_HEADER_ICON_STYLES, ROW_STYLES } from "@/const/styles";
 interface Props {
   pageTitle: string;
   pageIcon?: SvgIconComponent;
   onRefresh?: () => void;
+  onAdd?: () => void;
 }
 
 export default function PageHeader({
   pageTitle,
   pageIcon: Icon,
   onRefresh,
+  onAdd,
 }: Props) {
   return (
     <Box
@@ -30,17 +32,31 @@ export default function PageHeader({
           display: "flex",
           alignItems: "center",
           position: "relative",
-          left: Icon ? "-5px" : "-1px",
+          left: Icon ? "-2px" : "-1px",
         }}
       >
         {Icon && <Icon fontSize="large" sx={{ mr: 2 }} />}
         <Typography variant="h4">{pageTitle}</Typography>
       </Box>
 
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={ROW_STYLES}>
         {onRefresh && (
-          <BaseButton variant="outlined" sx={{ minWidth: 0, width: 40 }} onClick={onRefresh}>
+          <BaseButton
+            variant="outlined"
+            sx={PAGE_HEADER_ICON_STYLES}
+            onClick={onRefresh}
+          >
             <Refresh />
+          </BaseButton>
+        )}
+
+        {onAdd && (
+          <BaseButton
+            variant="outlined"
+            sx={PAGE_HEADER_ICON_STYLES}
+            onClick={onAdd}
+          >
+            <Add />
           </BaseButton>
         )}
       </Box>
