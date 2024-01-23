@@ -7,7 +7,6 @@ import PageHeader from "@/components/PageHeader";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 // import DataTable from "@/ui/submission/all/DataTable";
-import TempComp from "@/ui/submission/all/TempComp";
 import { Description } from "@mui/icons-material";
 
 const DataTable = dynamic(() => import("@/ui/submission/all/DataTable"), {

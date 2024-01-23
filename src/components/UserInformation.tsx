@@ -18,16 +18,23 @@ export default function UserInformation({
 }: Props) {
   return (
     <Box sx={{}}>
-      <Box sx={{ display: "flex", flex: 1 }}>
-        <Avatar variant="circular">M</Avatar>
-        <Box sx={{ ml: 1, width: "100%" }}>
+      <Box sx={{ display: "flex", flex: 1, alignItems: "center" }}>
+        <Box sx={{ alignSelf: "flex-start" }}>
+          <Avatar variant="circular">{mainInfo}</Avatar>
+        </Box>
+        <Box
+          sx={{
+            ml: 1,
+            width: "100%",
+          }}
+        >
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
             }}
           >
-            <Box sx={{ alignSelf: "flex-start" }}>
+            <Box>
               <Typography variant="body2">{mainInfo}</Typography>
               <Typography variant="caption">{subInfo}</Typography>
             </Box>
