@@ -22,6 +22,7 @@ interface Props {
   onClose: () => void;
   title: string;
   size?: keyof ModalSize;
+  footer: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -45,9 +46,11 @@ export default function BaseModal({
   onClose,
   title,
   size = "md",
+  footer,
   children,
 }: Props) {
   const theme = useTheme();
+
   return (
     <Modal
       open={open}
@@ -91,10 +94,21 @@ export default function BaseModal({
             {children}
           </Box>
 
-          <Divider />
-          <Box sx={{ padding: PADDING_FACTOR, bgcolor: "background.paper" }}>
-            WTF
-          </Box>
+          {footer && (
+            <>
+              <Box
+                sx={{
+                  padding: PADDING_FACTOR,
+                  bgcolor: "background.paper",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  borderTop: `1px solid ${theme.palette.divider}`,
+                }}
+              >
+                {footer}
+              </Box>
+            </>
+          )}
         </Box>
       </Fade>
     </Modal>
