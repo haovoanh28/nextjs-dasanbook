@@ -1,13 +1,18 @@
+"use client";
+
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Box from "@mui/material/Box";
+import { SxProps } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
-interface Props {}
+interface Props {
+  sx?: SxProps;
+}
 
-export default function SearchBar({}: Props) {
+export default function SearchBar({ sx }: Props) {
   return (
     <OutlinedInput
-      sx={{}}
+      sx={sx}
       placeholder="Enter search keyword"
       startAdornment={
         <Box

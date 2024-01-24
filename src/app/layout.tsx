@@ -3,8 +3,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/themes";
 import Box from "@mui/material/Box";
-import TopBar from "@/ui/dashboard/TopBar";
-import SideNav from "@/ui/dashboard/SideNav";
+import TopBar from "@/ui/layout/TopBar";
+import SideNav from "@/ui/layout/SideNav";
 import { DRAWER_WIDTH } from "@/const/ui";
 
 export const metadata = {
