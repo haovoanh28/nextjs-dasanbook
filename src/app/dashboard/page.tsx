@@ -14,7 +14,7 @@ export default async function Page() {
           <Typography variant="h5" component="div">
             대시보드
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2"> 
             대시보드 페이지입니다.
           </Typography>
         </CardContent>
