@@ -5,8 +5,9 @@ export default function InputBase(theme: Theme): Components {
     MuiInputBase: {
       styleOverrides: {
         root: {
-          "& input": {
-            height: "0.5em",
+          "& input, & .MuiSelect-select": {
+            paddingTop: "0.6rem",
+            paddingBottom: "0.6rem",
           },
         },
       },
