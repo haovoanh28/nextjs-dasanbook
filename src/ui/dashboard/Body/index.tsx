@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import TaskOverview from "./TaskOverview";
 import TicketAssigned from "./TickerAssigned";
+import Activities from "./Activities";
 
 import { ROW_STYLES } from "@/const/styles";
 
@@ -21,7 +22,7 @@ export default function Body() {
       </Box>
       <Box sx={{ flex: 1 }}>
         <Paper sx={{ p: 2, height: "100%" }}>
-          <Typography>Section C</Typography>
+          <Activities />
         </Paper>
       </Box>
     </Box>
