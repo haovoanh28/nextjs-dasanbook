@@ -6,6 +6,7 @@ import TableCell from "./TableCell";
 import Button from "./Button";
 import Chip from "./Chip";
 import Accordion from "./Accordion";
+import Timeline from "./Timeline";
 
 export default function ComponentOverrides(theme: Theme) {
   return {
@@ -15,5 +16,6 @@ export default function ComponentOverrides(theme: Theme) {
     ...Button(theme),
     ...Chip(theme),
     ...Accordion(theme),
+    ...Timeline(theme),
   };
 }
