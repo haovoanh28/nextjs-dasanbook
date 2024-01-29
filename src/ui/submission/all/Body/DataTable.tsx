@@ -62,15 +62,7 @@ export default function AllManuscriptsDataTable({}: Props) {
     {
       id: "select",
       header: (info) => <Checkbox sx={{ width: 30 }} />,
-      cell: (info) => (
-        <Checkbox
-          sx={{ width: 30 }}
-          onChange={(e) => {
-            console.log("e", e);
-            console.log("wtf ==> ", info.row.original);
-          }}
-        />
-      ),
+      cell: (info) => <Checkbox sx={{ width: 30 }} onChange={(e) => {}} />,
     },
     columnHelper.accessor("field", {
       header: () => "Field",
