@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Fragment } from "react";
 import { usePathname } from "next/navigation";
-
 import Link from "next/link";
 import {
   Box,
@@ -24,6 +23,7 @@ import {
   Email,
   ManageAccounts,
 } from "@mui/icons-material";
+import { MANUSCRIPT_URL, SETTING_URL } from "@/const/url";
 
 interface LinkType {
   text: string;
@@ -44,18 +44,18 @@ export default function NavLinks() {
     { text: "대시보드", href: "/dashboard", icon: BarChart },
     {
       text: "원고 투고 목록",
-      href: "/submission",
+      href: MANUSCRIPT_URL,
       icon: ListIcon,
       isExpand: true,
       subLinks: [
         {
           text: "All Manuscripts",
-          href: "/submission/all",
+          href: `${MANUSCRIPT_URL}/all`,
           icon: Description,
         },
         {
           text: "My Manuscripts",
-          href: "/submission/my",
+          href: `${MANUSCRIPT_URL}/my`,
           icon: Description,
         },
       ],
@@ -63,17 +63,17 @@ export default function NavLinks() {
     {
       text: "원고 투고 목록",
       icon: ManageHistory,
-      href: "/settings",
+      href: SETTING_URL,
       isExpand: true,
       subLinks: [
         {
           text: "메일 템플릿",
-          href: "/settings/mail-template",
+          href: `${SETTING_URL}/mail-template`,
           icon: Email,
         },
         {
           text: "분야별 담당자 지정",
-          href: "/settings/user-assignment",
+          href: `${SETTING_URL}/user-assignment`,
           icon: ManageAccounts,
         },
       ],

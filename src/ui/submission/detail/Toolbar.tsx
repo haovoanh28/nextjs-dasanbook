@@ -6,14 +6,14 @@ import Box, { BoxProps } from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { ArrowBack } from "@mui/icons-material";
 
-import { SUBMISSION_URL } from "@/const/url";
+import { MANUSCRIPTS_URL } from "@/const/url";
 
 interface Props extends BoxProps {}
 
 export default function Toolbar({ ...props }: Props) {
   const router = useRouter();
   const onClickBtn = () => {
-    router.push(`${SUBMISSION_URL}/all`);
+    router.push(`${MANUSCRIPTS_URL}/all`);
   };
 
   return (

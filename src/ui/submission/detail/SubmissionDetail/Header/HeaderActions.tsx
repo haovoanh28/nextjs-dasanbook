@@ -15,7 +15,7 @@ import {
   ErrorOutline,
 } from "@mui/icons-material";
 
-import { SUBMISSION_URL } from "@/const/url";
+import { MANUSCRIPTS_URL } from "@/const/url";
 
 import { DetailPageParams } from "@/@types/page";
 
@@ -29,7 +29,7 @@ export default function HeaderActions({}: Props) {
 
   const onSave = () => {
     setOpen(false);
-    router.push(`${SUBMISSION_URL}/all`);
+    router.push(`${MANUSCRIPTS_URL}/all`);
   };
 
   return (
