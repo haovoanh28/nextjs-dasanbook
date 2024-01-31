@@ -1,8 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createColumnHelper, ColumnDef } from "@tanstack/react-table";
-import { fakerKO as faker } from "@faker-js/faker";
+import { createColumnHelper, CellContext } from "@tanstack/react-table";
 
 import Checkbox from "@mui/material/Checkbox";
 import DataTable from "@/components/DataTable";
@@ -14,6 +13,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
 import { ManuscriptListItemData } from "@/@types/manuscripts/list";
+import { MANUSCRIPT_URL } from "@/const/url";
 
 interface Props {
   data: ManuscriptListItemData[];
@@ -25,7 +25,7 @@ export default function AllManuscriptsDataTable({ data }: Props) {
   const columnHelper = createColumnHelper<ManuscriptListItemData>();
   const columns = [
     {
-      id: "select",
+      id: `select`,
       header: () => <Checkbox sx={{ width: 30 }} />,
       cell: () => <Checkbox sx={{ width: 30 }} onChange={(e) => {}} />,
     },
@@ -40,7 +40,7 @@ export default function AllManuscriptsDataTable({ data }: Props) {
           sx={{ cursor: "pointer" }}
           component={Link}
           onClick={() => {
-            router.push(`/manuscript/${info.row.original.id}`);
+            router.push(`${MANUSCRIPT_URL}/${info.row.original.id}`);
           }}
         >
           {info.getValue()}
@@ -51,8 +51,8 @@ export default function AllManuscriptsDataTable({ data }: Props) {
       header: "Reviewers",
       cell: (info) => (
         <AvatarGroup max={5} sx={{ justifyContent: "start" }}>
-          {info.getValue().map((reviewer) => (
-            <Avatar key={`${reviewer.id}`} alt={reviewer.name} />
+          {info.getValue().map(({ id, name }) => (
+            <Avatar key={`${info.row.original.id}-${id}`} alt={name} src=""/>
           ))}
         </AvatarGroup>
       ),

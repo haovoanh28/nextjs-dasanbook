@@ -5,15 +5,18 @@ import Header from "./Header";
 import Body from "./Body";
 import Overview from "./Body/Overview";
 import Activity from "./Body/Activity";
-import { fetchSubmissionList } from "@/lib/api/submission";
+import { getManuscriptDetail } from "@/lib/api/submission";
 
-export default async function SubmissionDetail() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  const data = await fetchSubmissionList();
+interface Props {
+  id: string;
+}
+
+export default async function SubmissionDetail({ id }: Props) {
+  const manuscriptDetail = await getManuscriptDetail(id);
 
   return (
     <Box>
-      <Header />
+      <Header data={manuscriptDetail.rows} />
       <Divider sx={{ my: 1 }} />
       <Body overviewSlot={<Overview />} activitySlot={<Activity />} />
     </Box>

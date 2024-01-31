@@ -4,7 +4,7 @@ export interface PaginationResponse {
   total: number;
 }
 
-export interface IdNamePair {
+export interface IdName {
   id: string;
   name: string;
 }

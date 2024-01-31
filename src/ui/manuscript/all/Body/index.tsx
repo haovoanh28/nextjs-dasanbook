@@ -12,12 +12,8 @@ export default async function Body() {
   console.log("manuscriptList", manuscriptList);
 
   return (
-    <Card>
-      <CardContent>
-        <Toolbar />
-        <Box sx={{ mt: 2 }} />
-        <DataTable data={manuscriptList.rows} />
-      </CardContent>
-    </Card>
+    <>
+      <DataTable data={manuscriptList.rows} />
+    </>
   );
 }
