@@ -5,11 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import Toolbar from "./Toolbar";
 import DataTable from "./DataTable";
 
-import { getManuscriptList } from "@/lib/api/submission";
+import { getManuscriptList } from "@/lib/api/manuscript";
 
 export default async function Body() {
   const manuscriptList = await getManuscriptList();
-  console.log("manuscriptList", manuscriptList);
 
   return (
     <>

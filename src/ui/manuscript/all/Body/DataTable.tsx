@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createColumnHelper, CellContext } from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 
 import Checkbox from "@mui/material/Checkbox";
 import DataTable from "@/components/DataTable";
@@ -52,7 +52,7 @@ export default function AllManuscriptsDataTable({ data }: Props) {
       cell: (info) => (
         <AvatarGroup max={5} sx={{ justifyContent: "start" }}>
           {info.getValue().map(({ id, name }) => (
-            <Avatar key={`${info.row.original.id}-${id}`} alt={name} src=""/>
+            <Avatar key={`${info.row.original.id}-${id}`} alt={name} src="" />
           ))}
         </AvatarGroup>
       ),

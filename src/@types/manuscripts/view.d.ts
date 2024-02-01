@@ -25,3 +25,12 @@ export interface ManuscriptData {
 export interface ManuscriptViewResponse {
   rows: ManuscriptData;
 }
+
+export interface AddManuscriptParams {
+  title: string;
+  content: string;
+  phone: string;
+  email: string;
+  content_type: string | number;
+  category_id: string;
+}

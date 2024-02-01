@@ -7,15 +7,11 @@ import UserInformation from "@/components/UserInformation";
 import BaseIconButton from "@/components/BaseIconButton";
 import { Edit, MoreVert } from "@mui/icons-material";
 
+import { ManuscriptCommentData } from "@/@types/manuscripts/view";
+
 interface Props {
   containerProps?: BoxProps;
-  comment: {
-    creator: string;
-    position: string;
-    dept: string;
-    createdTime: string;
-    content: string;
-  };
+  comment: ManuscriptCommentData;
 }
 
 export default function CommentItem({
@@ -26,8 +22,8 @@ export default function CommentItem({
   return (
     <Box {...containerProps}>
       <UserInformation
-        mainInfo={`${comment.creator} ${comment.dept}/${comment.position}`}
-        subInfo={comment.createdTime}
+        mainInfo={`${comment.name}/${comment.position} `}
+        subInfo={comment.date}
         content={comment.content}
         rightActions={
           <Box sx={{ display: "flex" }}>

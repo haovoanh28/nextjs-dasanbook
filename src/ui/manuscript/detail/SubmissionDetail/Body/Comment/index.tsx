@@ -4,39 +4,19 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CommentItem from "./Item";
 
-import { faker } from "@faker-js/faker";
+import { ManuscriptCommentData } from "@/@types/manuscripts/view";
 
-type Comment = {
-  id: string;
-  creator: string;
-  position: string;
-  dept: string;
-  createdTime: string;
-  content: string;
-};
-
-const COMMENT_LIST: Comment[] = [];
-
-for (let i = 0; i < 5; i++) {
-  const comment: Comment = {
-    id: faker.string.uuid(),
-    creator: faker.person.firstName() + " " + faker.person.lastName(),
-    position: faker.person.jobTitle(),
-    dept: faker.commerce.department(),
-    createdTime: faker.date.past().toISOString(),
-    content: faker.lorem.paragraph(),
-  };
-
-  COMMENT_LIST.push(comment);
+interface Props {
+  commentList: ManuscriptCommentData[];
 }
 
-export default function Comment() {
+export default function Comment({ commentList }: Props) {
   return (
     <Box>
-      <Typography variant="subtitle1">Comment</Typography>
+      <Typography variant="subtitle1">Comments</Typography>
       <Divider sx={{ mt: 0.5, mb: 2 }} />
       <Stack spacing={2}>
-        {COMMENT_LIST.map((comment) => (
+        {commentList.map((comment) => (
           <CommentItem
             key={comment.id}
             comment={comment}

@@ -5,7 +5,7 @@ import Header from "./Header";
 import Body from "./Body";
 import Overview from "./Body/Overview";
 import Activity from "./Body/Activity";
-import { getManuscriptDetail } from "@/lib/api/submission";
+import { getManuscriptDetail } from "@/lib/api/manuscript";
 
 interface Props {
   id: string;
@@ -18,7 +18,10 @@ export default async function SubmissionDetail({ id }: Props) {
     <Box>
       <Header data={manuscriptDetail.rows} />
       <Divider sx={{ my: 1 }} />
-      <Body overviewSlot={<Overview />} activitySlot={<Activity />} />
+      <Body
+        overviewSlot={<Overview data={manuscriptDetail.rows} />}
+        activitySlot={<Activity />}
+      />
     </Box>
   );
 }

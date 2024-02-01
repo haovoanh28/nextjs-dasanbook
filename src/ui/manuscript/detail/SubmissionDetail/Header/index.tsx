@@ -24,7 +24,7 @@ export default function Header({ data }: Props) {
           <Chip label={data.type.name} color="info" />
         </Box>
         <Typography variant="body2" color="grey">
-          Submitted On: 2023/12/25 15:25:51
+          Submitted On: {data.created_on}
         </Typography>
       </Box>
 

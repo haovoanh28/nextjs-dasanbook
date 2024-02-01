@@ -4,12 +4,18 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import FileItem from "@/components/FileItem";
 
-export default function Files() {
+import { IdName } from "@/@types/base";
+
+interface Props {
+  fileList: IdName[];
+}
+
+export default function Attachments({ fileList }: Props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-      <FileItem name="file1.pdf" />
-      <FileItem name="file2.pdf" />
-      <FileItem name="file3Fz.pdf" />
+      {fileList.map((file) => (
+        <FileItem key={file.id} name={file.name} />
+      ))}
     </Box>
   );
 }

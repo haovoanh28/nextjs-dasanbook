@@ -1,28 +1,24 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Files from "./Files";
+import Attachments from "./Attachments";
 import Comment from "../Comment";
 
-import { ROW_STYLES } from "@/const/styles";
-import { fakerKO as faker } from "@faker-js/faker";
+import { ManuscriptData } from "@/@types/manuscripts/view";
 
-export default function Overview() {
+interface Props {
+  data: ManuscriptData;
+}
+
+export default function Overview({ data }: Props) {
   return (
     <Box>
-      <Files />
+      <Attachments fileList={data.attachments} />
       <Box sx={{ mt: 1 }}>
-        <Box sx={{ ...ROW_STYLES }}>
-          <Typography>{faker.person.firstName()}:</Typography>
-          <Typography>{faker.person.jobTitle()}</Typography>
-        </Box>
-        <Box sx={{ ...ROW_STYLES }}>
-          <Typography>{faker.commerce.department()}:</Typography>
-          <Typography>{faker.commerce.productName()}</Typography>
-        </Box>
+        <Typography>{data.content}</Typography>
       </Box>
 
       <Box sx={{ mt: 2 }}>
-        <Comment />
+        <Comment commentList={data.comments} />
       </Box>
     </Box>
   );

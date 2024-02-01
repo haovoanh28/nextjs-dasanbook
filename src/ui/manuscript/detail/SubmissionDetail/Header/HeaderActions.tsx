@@ -15,22 +15,10 @@ import {
   ErrorOutline,
 } from "@mui/icons-material";
 
-import { MANUSCRIPT_URL } from "@/const/url";
-
-import { DetailPageParams } from "@/@types/page";
-
 interface Props {}
 
 export default function HeaderActions({}: Props) {
-  const router = useRouter();
-  const { id } = useParams<DetailPageParams>();
-
   const [open, setOpen] = useState(false);
-
-  const onSave = () => {
-    setOpen(false);
-    router.push(`${MANUSCRIPT_URL}/all`);
-  };
 
   return (
     <>
@@ -63,7 +51,6 @@ export default function HeaderActions({}: Props) {
         onClose={() => {
           setOpen(false);
         }}
-        onSave={onSave}
       />
     </>
   );
