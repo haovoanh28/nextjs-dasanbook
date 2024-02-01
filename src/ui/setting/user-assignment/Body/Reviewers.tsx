@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useTheme } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UserInformation from "@/components/UserInformation";
@@ -11,22 +11,20 @@ import OrgModal from "@/components/OrgModal";
 import Panel from "./Panel";
 
 import { Delete, Add } from "@mui/icons-material";
+import { IdName } from "@/@types/base";
 
 interface Props {
-  selectedUsers:
-    | {
-        id: string;
-        name: string;
-        dept: string;
-        position: string;
-      }[]
-    | undefined;
+  data: IdName[] | undefined;
+  isLoading: boolean;
 }
 
-export default function SelectedUser({ selectedUsers }: Props) {
+export default function Reviewers({ data, isLoading }: Props) {
   const theme = useTheme();
-
   const [openOrg, setOpenOrg] = useState(false);
+
+  useEffect(() => {
+    console.log("data ==> ", data);
+  }, [data]);
 
   const rightActions = useMemo(
     () => (
@@ -44,14 +42,15 @@ export default function SelectedUser({ selectedUsers }: Props) {
   return (
     <>
       <Panel title="선택된 유저" rightActions={rightActions}>
-        {!selectedUsers && <Typography>No Data</Typography>}
-        {selectedUsers && (
+        {!data && isLoading && <Typography>Loading ....</Typography>}
+        {!data && !isLoading && <Typography>No Data</Typography>}
+        {data && (
           <Stack spacing={2}>
-            {selectedUsers.map((user) => (
+            {data.map((user) => (
               <UserInformation
                 key={user.id}
                 mainInfo={user.name}
-                subInfo={`${user.dept} / ${user.position}`}
+                // subInfo={`${user.dept} / ${user.position}`}
                 rightActions={
                   <BaseIconButton color="error">
                     <Delete fontSize="small" />

@@ -12,13 +12,13 @@ import BaseIconButton from "@/components/BaseIconButton";
 import { ExpandMore, Edit, Delete } from "@mui/icons-material";
 import { FLEX_BETWEEN_STYLES } from "@/const/styles";
 
+import { MailTemplateListItem } from "@/@types/mail-template/list";
+
 interface Props {
-  id: string;
-  title: string;
-  content: string;
+  item: MailTemplateListItem;
 }
 
-export default function Item({ id, content, title }: Props) {
+export default function Item({ item }: Props) {
   return (
     <Accordion>
       <Box sx={FLEX_BETWEEN_STYLES}>
@@ -27,7 +27,7 @@ export default function Item({ id, content, title }: Props) {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          {title}
+          {item.title}
         </AccordionSummary>
         <Box>
           <BaseIconButton tooltip="Edit">
@@ -39,7 +39,7 @@ export default function Item({ id, content, title }: Props) {
         </Box>
       </Box>
 
-      <AccordionDetails>{content}</AccordionDetails>
+      <AccordionDetails>{item.content}</AccordionDetails>
     </Accordion>
   );
 }

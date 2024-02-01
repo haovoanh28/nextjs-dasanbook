@@ -8,8 +8,10 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Panel from "./Panel";
 
+import { IdName } from "@/@types/base";
+
 interface Props {
-  fields: { id: string; title: string }[];
+  fields: IdName[];
   selectedField: string | undefined;
   onSelectField: (field: string) => void;
 }
@@ -31,7 +33,7 @@ export default function Fields({
               sx={{ width: "100%" }}
               onClick={() => onSelectField(field.id)}
             >
-              {field.title}
+              {field.name}
             </BaseButton>
           </Grid>
         ))}
