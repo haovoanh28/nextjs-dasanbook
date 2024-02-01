@@ -1,11 +1,17 @@
 "use client";
-import { Roboto } from "next/font/google";
+import { Roboto, Nanum_Gothic, Noto_Sans_KR } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 
 import ComponentOverrides from "./@override";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const notoSanKR = Noto_Sans_KR({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -20,7 +26,7 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: `${roboto.style.fontFamily}, ${notoSanKR.style.fontFamily}`,
     subtitle1: {
       fontWeight: 500,
     },
