@@ -12,6 +12,7 @@ import TimelineOppositeContent, {
 import UserInformation from "@/components/UserInformation";
 
 import { faker } from "@faker-js/faker";
+import { getActivityList } from "@/lib/api/activity";
 
 interface Activity {
   id: string;
@@ -33,7 +34,9 @@ const ACTIVITIES_DATA: Activity[] = Array.from({ length: 5 }).map(
   })
 );
 
-export default function Activities() {
+export default async function Activities() {
+  const activityList = await getActivityList();
+
   return (
     <>
       <Typography variant="h6" sx={{ mb: 2 }}>
@@ -48,14 +51,11 @@ export default function Activities() {
         }}
       >
         <TimelineOppositeContent sx={{ display: "none" }} />
-        {ACTIVITIES_DATA.map((activity) => (
+        {activityList.rows.map((activity) => (
           <TimelineItem key={activity.id}>
             <TimelineOppositeContent>
               <Typography variant="body2" color="text.secondary">
-                {activity.date}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {activity.time}
+                {activity.created_on}
               </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
@@ -64,10 +64,12 @@ export default function Activities() {
             </TimelineSeparator>
             <TimelineContent>
               <UserInformation
-                mainInfo={activity.userName}
-                subInfo={activity.type}
+                mainInfo={activity.creator_name}
+                subInfo={activity.data.status}
               />
-              <Typography variant="body2">{activity.title}</Typography>
+              <Typography variant="body2" sx={{ my: 1 }}>
+                {activity.title}
+              </Typography>
               <Box>
                 <Typography>상태 변경: Backlog 에서 Analyst</Typography>
               </Box>

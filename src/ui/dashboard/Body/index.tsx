@@ -6,7 +6,7 @@ import TaskOverview from "./TaskOverview";
 import TicketAssigned from "./TickerAssigned";
 import Activities from "./Activities";
 
-import { ROW_STYLES } from "@/const/styles";
+import { Suspense } from "react";
 
 const PADDING_FACTOR = 2;
 export default function Body() {
@@ -22,7 +22,9 @@ export default function Body() {
       </Box>
       <Box sx={{ flex: 1 }}>
         <Paper sx={{ p: 2, height: "100%" }}>
-          <Activities />
+          <Suspense fallback={<Typography>Loading...</Typography>}>
+            <Activities />
+          </Suspense>
         </Paper>
       </Box>
     </Box>
