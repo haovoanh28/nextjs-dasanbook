@@ -15,8 +15,11 @@ import { ROW_STYLES } from "@/const/styles";
 
 interface Props<T> extends NodeRendererProps<T> {}
 
-const IconProps: SvgIconProps = { fontSize: "small" };
-const ICON_WIDTH = 24;
+const ICON_WIDTH = 20;
+const IconProps: SvgIconProps = {
+  fontSize: "small",
+  sx: { width: `${ICON_WIDTH}px`, height: `${ICON_WIDTH}px` },
+};
 export default function OrgNode<T extends { [key: string]: any }>({
   node,
   style,
@@ -41,7 +44,11 @@ export default function OrgNode<T extends { [key: string]: any }>({
             node.toggle();
           }}
         >
-          {node.isClosed ? <ArrowRight /> : <ArrowDropDown />}
+          {node.isClosed ? (
+            <ArrowRight {...IconProps} />
+          ) : (
+            <ArrowDropDown {...IconProps} />
+          )}
         </Stack>
       ) : (
         <Box sx={{ width: ICON_WIDTH }} />
@@ -52,19 +59,8 @@ export default function OrgNode<T extends { [key: string]: any }>({
           sx={{
             p: 0,
             mb: "3px",
+            ml: "3px",
             "&:hover": { bgcolor: "transparent" },
-            "&.MuiCheckbox-root": {
-              width: "14px",
-              height: "14px",
-              "& .MuiBox-root": {
-                width: "14px",
-                height: "14px",
-                "& svg": {
-                  width: "14px",
-                  height: "14px",
-                },
-              },
-            },
           }}
         />
       </Box>
