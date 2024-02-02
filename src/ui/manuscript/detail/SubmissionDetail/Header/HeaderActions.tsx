@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
+import useConfirm from "@/lib/hooks/useConfirm";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -18,7 +20,14 @@ import {
 interface Props {}
 
 export default function HeaderActions({}: Props) {
+  const [ConfirmModal, showModal] = useConfirm();
   const [open, setOpen] = useState(false);
+
+  const onClickReject = () => {
+    showModal().then((res) => {
+      // Handle reject
+    })
+  }
 
   return (
     <>
@@ -38,9 +47,7 @@ export default function HeaderActions({}: Props) {
           variant="outlined"
           color="error"
           startIcon={<HighlightOff />}
-          onClick={() => {
-            console.log("No");
-          }}
+          onClick={onClickReject}
         >
           반려
         </BaseButton>
@@ -52,6 +59,8 @@ export default function HeaderActions({}: Props) {
           setOpen(false);
         }}
       />
+
+      <ConfirmModal />
     </>
   );
 }

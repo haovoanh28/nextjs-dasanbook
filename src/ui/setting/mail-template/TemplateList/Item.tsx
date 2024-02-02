@@ -1,14 +1,12 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-
 import BaseButton from "@/components/BaseButton";
 import BaseIconButton from "@/components/BaseIconButton";
-
+import ItemAction from "./ItemAction";
 import { ExpandMore, Edit, Delete } from "@mui/icons-material";
 import { FLEX_BETWEEN_STYLES } from "@/const/styles";
 
@@ -29,14 +27,15 @@ export default function Item({ item }: Props) {
         >
           {item.title}
         </AccordionSummary>
-        <Box>
+        {/* <Box>
           <BaseIconButton tooltip="Edit">
             <Edit fontSize="small" color="success" />
           </BaseIconButton>
           <BaseIconButton tooltip="Delete">
             <Delete fontSize="small" color="error" />
           </BaseIconButton>
-        </Box>
+        </Box> */}
+        <ItemAction />
       </Box>
 
       <AccordionDetails>{item.content}</AccordionDetails>
