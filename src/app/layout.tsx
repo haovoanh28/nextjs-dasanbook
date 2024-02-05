@@ -24,17 +24,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            <SideNav />
-            <Box
-              component="main"
-              sx={{
-                flexGrow: 1,
-                ml: `${DRAWER_WIDTH}px`,
-              }}
-            >
-              <TopBar />
-              <Box sx={{ p: 2, pt: 1 }}>{children}</Box>
-            </Box>
+            {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
